@@ -45,7 +45,8 @@ namespace MissionPlanner.Utilities
             minipix,
             chbootloader,
             pass,
-            nxpfmuk66
+            nxpfmuk66,
+            Crossflight
         }
 
         public static string chbootloader = "";
@@ -127,6 +128,11 @@ namespace MissionPlanner.Utilities
 
                                 chbootloader = item.board.Replace("-bl", "").Replace("-Bl", "").Replace("-BL", "");
                                 return boards.chbootloader;
+                            }
+                            else if (item.board == "Crossflight" || item.board.ToLower() == "minipix-v2-bl")
+                            {
+                                log.Info("is a Crossflight");
+                                return boards.Crossflight;
                             }
                             // old style bootloader
                             else if (item.board == "PX4 FMU v5.x")

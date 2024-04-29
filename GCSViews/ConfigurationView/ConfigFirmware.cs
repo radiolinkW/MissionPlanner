@@ -180,6 +180,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     url2560_2 = "" + mavtype.Where(a => a.Platform.ToLower() == "apm2" || a.Platform.ToLower() == "apm2-quad")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4v1 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v1")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4rl = "",
+                    urlCrossflight = "",
                     urlpx4v2 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v2")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4v3 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v3")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4v4 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v4")?.FirstOrDefault()?.Url?.ToString(),

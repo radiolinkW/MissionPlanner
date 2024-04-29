@@ -64,7 +64,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
 
             Task.Run(() =>
             {
-                APFirmware.GetList("https://firmware.oborne.me/manifest.json.gz");
+                APFirmware.GetList("http://www.radiolink.com.cn/firmware/Crossflight/manifest.json.gz");
 
                 var options = APFirmware.GetRelease(REL_Type);
 

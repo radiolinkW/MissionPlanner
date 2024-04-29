@@ -29,7 +29,7 @@ namespace MissionPlanner.Utilities
 
         public event ProgressEventHandler Progress;
 
-        string firmwareurl = "https://github.com/ArduPilot/binary/raw/master/Firmware/firmware2.xml;https://firmware.ardupilot.org/Tools/MissionPlanner/Firmware/firmware2.xml";
+        string firmwareurl = "http://www.radiolink.com.cn/firmware/Crossflight/firmware2.xml;";
 
         static readonly string gholdurl = ("https://github.com/diydrones/binary/raw/!Hash!/Firmware/firmware2.xml");
         static readonly string gholdfirmwareurl = ("https://github.com/diydrones/binary/raw/!Hash!/Firmware/!Firmware!");
@@ -58,6 +58,7 @@ namespace MissionPlanner.Utilities
             public string url2560_2 = "";
             public string urlpx4v1 = "";
             public string urlpx4rl = "";
+            public string urlCrossflight = "";
             public string urlpx4v2 = "";
             public string urlpx4v3 = "";
             public string urlpx4v4 = "";
@@ -412,6 +413,10 @@ namespace MissionPlanner.Utilities
                 {
                     baseurl = temp.urlpx4rl.ToString();
                 }
+                else if (board == BoardDetect.boards.Crossflight)
+                {
+                    baseurl = temp.urlCrossflight.ToString();
+                }
                 else if (board == BoardDetect.boards.px4v2)
                 {
                     baseurl = temp.urlpx4v2.ToString();
@@ -530,9 +535,24 @@ namespace MissionPlanner.Utilities
 
                 var starttime = DateTime.Now;
 
-                Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
-                                                 @"firmware.hex",
+                if (board == BoardDetect.boards.Crossflight)
+                {
+                    Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
+                                 @"firmware.apj",
                     (i, s) => updateProgress(i, s));
+                }
+                else if (board == BoardDetect.boards.px4rl)
+                {
+                    Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
+                                 @"firmware.px4",
+                     (i, s) => updateProgress(i, s));
+                }
+                else
+                {
+                    Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
+                                                     @"firmware.hex",
+                        (i, s) => updateProgress(i, s));
+                }
 
                 var timetook = (DateTime.Now - starttime).TotalMilliseconds;
 
@@ -552,8 +572,20 @@ namespace MissionPlanner.Utilities
 
             var uploadstarttime = DateTime.Now;
 
-            var ans = UploadFlash(comport,
-                Settings.GetUserDataDirectory() + @"firmware.hex", board);
+            var ans = false;
+            if (board == BoardDetect.boards.Crossflight)
+            {
+                ans = UploadPX4(Settings.GetUserDataDirectory() + @"firmware.apj", board);
+            }
+            else if (board == BoardDetect.boards.px4rl)
+            {
+                ans = UploadPX4(Settings.GetUserDataDirectory() + @"firmware.px4", board);
+            }
+            else
+            {
+                ans = UploadFlash(comport,
+                   Settings.GetUserDataDirectory() + @"firmware.hex", board);
+            }
 
             var uploadtime = (DateTime.Now - uploadstarttime).TotalMilliseconds;
 
