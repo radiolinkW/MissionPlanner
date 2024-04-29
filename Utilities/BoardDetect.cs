@@ -46,7 +46,8 @@ namespace MissionPlanner.Utilities
             chbootloader,
             pass,
             nxpfmuk66,
-            Crossflight
+            Crossflight,
+            Crossrace
         }
 
         public static string chbootloader = "";
@@ -134,6 +135,11 @@ namespace MissionPlanner.Utilities
                                 log.Info("is a Crossflight");
                                 return boards.Crossflight;
                             }
+                            else if (item.board == "Crossrace-BL" ||  item.board == "CrossRace")
+  	                        {
+                                log.Info("is a Crossrace");
+  	                            return boards.Crossrace;
+  	                        }
                             // old style bootloader
                             else if (item.board == "PX4 FMU v5.x")
                             {

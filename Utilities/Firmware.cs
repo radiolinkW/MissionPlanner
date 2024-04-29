@@ -59,6 +59,7 @@ namespace MissionPlanner.Utilities
             public string urlpx4v1 = "";
             public string urlpx4rl = "";
             public string urlCrossflight = "";
+            public string urlCrossrace = "";
             public string urlpx4v2 = "";
             public string urlpx4v3 = "";
             public string urlpx4v4 = "";
@@ -417,6 +418,10 @@ namespace MissionPlanner.Utilities
                 {
                     baseurl = temp.urlCrossflight.ToString();
                 }
+                else if (board == BoardDetect.boards.Crossrace)
+  	            {
+  	                baseurl = temp.urlCrossrace.ToString();
+  	            }
                 else if (board == BoardDetect.boards.px4v2)
                 {
                     baseurl = temp.urlpx4v2.ToString();
@@ -541,6 +546,12 @@ namespace MissionPlanner.Utilities
                                  @"firmware.apj",
                     (i, s) => updateProgress(i, s));
                 }
+                else if (board == BoardDetect.boards.Crossrace)
+  	            {
+  	                Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
+  	                                @"firmware.apj",
+  	                (i, s) => updateProgress(i, s));
+  	            }
                 else if (board == BoardDetect.boards.px4rl)
                 {
                     Download.getFilefromNet(baseurl, Settings.GetUserDataDirectory() +
@@ -577,6 +588,10 @@ namespace MissionPlanner.Utilities
             {
                 ans = UploadPX4(Settings.GetUserDataDirectory() + @"firmware.apj", board);
             }
+             else if (board == BoardDetect.boards.Crossrace)
+  	        {
+  	            ans = UploadPX4(Settings.GetUserDataDirectory() + @"firmware.apj", board);
+  	        }
             else if (board == BoardDetect.boards.px4rl)
             {
                 ans = UploadPX4(Settings.GetUserDataDirectory() + @"firmware.px4", board);
