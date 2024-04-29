@@ -275,10 +275,10 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             // 
             // ConfigFirmware
             // 
-            this.Controls.Add(this.imageLabel1);
+            //this.Controls.Add(this.imageLabel1);
             this.Controls.Add(this.pictureBoxSub);
             this.Controls.Add(this.linkLabel1);
-            this.Controls.Add(this.lbl_licence);
+            //this.Controls.Add(this.lbl_licence);
             this.Controls.Add(this.pictureAntennaTracker);
             this.Controls.Add(this.lbl_px4bl);
             this.Controls.Add(this.lbl_dlfw);
@@ -287,7 +287,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
             this.Controls.Add(this.CMB_history_label);
             this.Controls.Add(this.pictureBoxRover);
             this.Controls.Add(this.CMB_history);
-            this.Controls.Add(this.label1);
+            //this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_status);
             this.Controls.Add(this.progress);

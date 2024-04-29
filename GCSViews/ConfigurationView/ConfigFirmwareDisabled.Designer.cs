@@ -55,7 +55,7 @@
             // 
             this.Controls.Add(this.label2);
             this.Controls.Add(this.but_bootloaderupdate);
-            this.Controls.Add(this.label1);
+            //this.Controls.Add(this.label1);
             this.Name = "ConfigFirmwareDisabled";
             resources.ApplyResources(this, "$this");
             this.ResumeLayout(false);

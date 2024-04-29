@@ -280,7 +280,7 @@
             this.Controls.Add(this.lbl_devfw);
             this.Controls.Add(this.lbl_status);
             this.Controls.Add(this.progress);
-            this.Controls.Add(this.imageLabel1);
+            //this.Controls.Add(this.imageLabel1);
             this.Controls.Add(this.pictureBoxSub);
             this.Controls.Add(this.pictureAntennaTracker);
             this.Controls.Add(this.pictureBoxRover);
