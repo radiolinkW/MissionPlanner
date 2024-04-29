@@ -215,6 +215,14 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                 if (!p1)
                     CustomMessageBox.Show(Strings.ErrorSettingParameter, Strings.ERROR);
             }
+            else
+            {
+                // clear it
+                await MainV2.comPort.setParamAsync((byte)MainV2.comPort.sysidcurrent,
+                    (byte)MainV2.comPort.compidcurrent,
+                    "COMPASS_PRIO1_ID",
+                    0);
+            }
 
             if (myDataGridView1.Rows.Count >= 2)
             {

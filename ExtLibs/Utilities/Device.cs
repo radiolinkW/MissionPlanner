@@ -120,7 +120,8 @@ namespace MissionPlanner.Utilities
                 DEVTYPE_MMC5883 = 0x13,
                 DEVTYPE_AK09918 = 0x14,
                 DEVTYPE_AK09915 = 0x15,
-                DEVTYPE_QMC5883P = 0x16,
+//                DEVTYPE_QMC5883P = 0x16,
+                DEVTYPE_VCM5883L = 0x16,
             }
 
             //https://github.com/ArduPilot/ardupilot/blob/master/libraries/AP_InertialSensor/AP_InertialSensor_Backend.h#L95
@@ -161,6 +162,7 @@ namespace MissionPlanner.Utilities
                 DEVTYPE_INS_ICM42670 = 0x3A,
                 DEVTYPE_INS_ICM45686 = 0x3B,
                 DEVTYPE_INS_SCHA63T = 0x3C,
+                DEVTYPE_BMI323 = 0x3E,
             };
 
 
@@ -179,6 +181,7 @@ namespace MissionPlanner.Utilities
                 DEVTYPE_BARO_LPS2XH = 0x0A,
                 DEVTYPE_BARO_MS5611 = 0x0B,
                 DEVTYPE_BARO_SPL06 = 0x0C,
+                DEVTYPE_BARO_SPA06 = 0x15,
                 DEVTYPE_BARO_DRONECAN = 0x0D,
                 DEVTYPE_BARO_MSP = 0x0E,
                 DEVTYPE_BARO_ICP101XX = 0x0F,
