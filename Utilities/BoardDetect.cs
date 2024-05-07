@@ -47,7 +47,8 @@ namespace MissionPlanner.Utilities
             pass,
             nxpfmuk66,
             Crossflight,
-            Crossrace
+            Crossrace,
+            minipixv11
         }
 
         public static string chbootloader = "";
@@ -324,6 +325,10 @@ namespace MissionPlanner.Utilities
                     else if (obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0016"))
                     {
                         return boards.px4rl;
+                    }
+                    else if (obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0017"))
+                    {
+                        return boards.minipixv11;
                     }
                     //|| obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0012") || obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0013") || obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0014") || obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0015") || obj2.Properties["PNPDeviceID"].Value.ToString().Contains(@"USB\VID_26AC&PID_0016")
 

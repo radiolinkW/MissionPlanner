@@ -182,6 +182,7 @@ namespace MissionPlanner.GCSViews.ConfigurationView
                     urlpx4rl = "",
                     urlCrossflight = "",
                     urlCrossrace = "",
+                    urlminipixv11 = "",
                     urlpx4v2 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v2")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4v3 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v3")?.FirstOrDefault()?.Url?.ToString(),
                     urlpx4v4 = "" + mavtype.Where(a => a.Platform.ToLower() == "px4-v4")?.FirstOrDefault()?.Url?.ToString(),
